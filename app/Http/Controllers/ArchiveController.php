@@ -11,17 +11,17 @@ class ArchiveController extends Controller
 {
     public function index()
     {
-        $years = pdf::select(DB::raw('YEAR(created_at) as year'))
-                ->whereMonth('created_at', '<', Carbon::now())
-                ->groupBy('year')
+        $years = pdf::select(DB::raw('YEAR(created_at) as year, MONTH(created_at) as month'))
+                ->whereMonth('created_at', '<', Carbon::now()->subMonths(3))
+                ->groupBy('year', 'month')
                 ->get();
-
+       
         return view('archive.index', compact('years'));
     }
 
-    public function showyear($year)
+    public function showyear($month,$year)
     {
-        $years = pdf::whereYear('created_at', $year)->whereMonth('created_at', '<', Carbon::now())->get();
+        $years = pdf::whereYear('created_at', $year)->whereMonth('created_at', $month)->get();
 
         return view('archive.year', compact('years'));
     }

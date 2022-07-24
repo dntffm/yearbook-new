@@ -20,7 +20,7 @@ Route::middleware(['auth'])->group(function () {
 
 });
 Route::get('/archive', 'ArchiveController@index');
-Route::get('/archive/year/{year}', 'ArchiveController@showyear');
+Route::get('/archive/year/{month}/{year}', 'ArchiveController@showyear');
 Route::get('download/pdf', 'PdfController@download');
 Route::get('/', 'PdfController@index');
 Route::get('/pdf/{id}', 'PdfController@show');

@@ -9,9 +9,9 @@
         </div>
         <div class="row">
             @foreach ($years as $year)
-                <a href="{{url('archive/year'.'/'.$year->year)}}" class="card col-3 py-4 cursor-pointer" role="button">
+                <a href="{{url('archive/year'.'/'.$year->month.'/'.$year->year)}}" class="card mr-2 col-3 py-4 cursor-pointer" role="button">
                     <h3 class="text-dark">
-                        {{$year->year}}
+                        {{date("F", mktime(0, 0, 0, $year->month, 1))}} {{$year->year}}
                     </h3>
                 </a>
             @endforeach
