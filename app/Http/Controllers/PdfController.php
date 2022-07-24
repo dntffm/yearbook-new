@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\pdf;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +19,7 @@ class PdfController extends Controller
      */
     public function index()
     {
-        $pdfs = pdf::orderBy('created_at', 'desc')->paginate(15);
+        $pdfs = pdf::orderBy('created_at', 'desc')->whereMonth('created_at',Carbon::now())->paginate(10);
         return view('pdf.index', compact('pdfs'));
     }
 
