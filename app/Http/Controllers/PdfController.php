@@ -19,7 +19,7 @@ class PdfController extends Controller
      */
     public function index()
     {
-        $pdfs = pdf::orderBy('created_at', 'desc')->whereMonth('created_at','<=',Carbon::now()->subMonths(3))->paginate(10);
+        $pdfs = pdf::orderBy('created_at', 'desc')->whereMonth('created_at','>',Carbon::now()->subMonths(3))->paginate(10);
         return view('pdf.index', compact('pdfs'));
     }
 
