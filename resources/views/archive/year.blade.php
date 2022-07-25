@@ -4,7 +4,7 @@
     <div class="container pb-5">
         <div class="row">
             <div class="col-12">
-                <h1 class="mt-4">Archive {{request()->route('year')}}</h1>
+                <h1 class="mt-4">Archive {{date("F", mktime(0, 0, 0, request()->route('month'), 1))}} {{request()->route('year')}}</h1>
             </div>
         </div>
         @foreach($years as $year)
