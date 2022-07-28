@@ -72,7 +72,7 @@
     
             $.ajax({
                 type: "GET",
-                url: "download/pdf",
+                url: "/download/pdf",
                 data: formData,
                 success: function (data){
                     window.open(data, '_blank')

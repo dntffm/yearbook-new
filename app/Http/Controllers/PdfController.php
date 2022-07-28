@@ -112,6 +112,6 @@ class PdfController extends Controller
     {
         if($request->password != 'Wisuda2021-1') return response()->json(['message' => 'Invalid password'], 400);
         $headers = array('Content-Type'=> 'application/pdf');
-        return Storage::download('/public/pdf/'.$request->file, $request->file, $headers);
+        return Storage::url('public/pdf/'.$request->file);
     }
 }
