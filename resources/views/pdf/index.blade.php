@@ -3,6 +3,10 @@
 @section('content') 
     <div class="background-big">
     <div class="container">
+	<div class="pt-5">
+	    <h4 class="text-center">Archive Yearbook UMB periode sebelumnya bisa dilihat <a class="text-blue" href="{{url('archive')}}">disini</a></h4>
+
+	<div>
         <div class="row justify-content-center">
             <div class="col-md-8 pt-5 pb-5">
                 <div class="card">
@@ -24,7 +28,7 @@
                                 <embed src="{{asset('storage/pdf/'.$pdf->url) }}#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="300" type="application/pdf" alt="pdf" />
                                 <p class="text-bold font-20 mt-3">{{$pdf->name}}</p>
                                 <div class="d-flex mb-3">
-                                    <div class="mr-3">
+				    <div class="mr-3">
                                         <a class="btn btn-primary" href="{{url('pdf/'.$pdf->url)}}">Show</a>
                                     </div>
                                     <div class="mr-2">
@@ -45,8 +49,10 @@
                                 </div>
                             </div>
                         @endforeach
-                    </div>                    
+                    </div>     
+		   <div class="mx-3">               
 		    {{ $pdfs->links() }}
+		   </div>
                 </div>
             </div>
         </div>
@@ -63,11 +69,11 @@
               </button>
             </div>
             <div class="modal-body">
-                <div class="modal-image d-flex justify-content-center mb-3">
-                    <img src="{{url('storage/image/download.png')}}" alt="download" height="150">
-                </div>
+		<div class="modal-image d-flex justify-content-center mb-3">
+		  <img src="{{url('storage/image/download.png')}}" alt="download" height="150">
+		</div>
                 <div id="alert"></div>
-		        <div class="d-flex justify-content-center">
+		<div class="d-flex justify-content-center">
                   <p class="font-14 mr-2 mt-2">Masukan Password : </p>
                   <form id="modal-form">
                     <input type="text" class="form-control" name="password" id="password">
