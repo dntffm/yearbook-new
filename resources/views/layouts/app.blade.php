@@ -48,7 +48,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <img src="{{asset('img/umb.png')}}" alt="logo-image" height="80">
+                        <img src="{{asset('img/umb.png')}}" alt="logo-image" class="nav-right-logo">
                         @can('add pdf')
                         @guest
                         <li class="nav-item">
@@ -62,13 +62,17 @@
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <h6>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </h6>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                                     <h6>
+                                                         {{ __('Logout') }}
+                                                     </h6>
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -135,7 +139,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-lg-3 col-md-6 col-sm-12 text-center my-sm-5">
                             <div class="logo-widget footer-widget float-lg-right">
                                 <figure class="logo-box"><a href="https://yearbookumb.com">
                                     <img src="{{asset('img/Logo_UMB_Putih_besar.png')}}" alt="" height="150"></a>
@@ -155,7 +159,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 col-md-6 col-sm-12 m-3">
+                    <div class="col-lg-12 col-md-6 col-sm-12 m-auto">
                         <div class="text-black text-center"><a href="https://yearbookumb.com">COPYRIGHT</a> &copy;
                             UNIVERSITAS MERCU BUANA, {{ date('Y') }} All Right Reserved</div>
                     </div>

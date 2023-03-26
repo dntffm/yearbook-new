@@ -10991,11 +10991,19 @@ a.text-dark:focus {
   .bg-hero {
     background-color: #0d73ba;
   }
+
+  .nav-right-logo {
+    size: 20%;
+  }  
 }
 
 @media (min-width: 768px) {
   .bg-hero {
     background-color: #0d73ba;
+  }
+
+  .nav-right-logo {
+    height: 80px;
   }
 }
 
@@ -11003,11 +11011,19 @@ a.text-dark:focus {
   .bg-hero {
     background: linear-gradient(90deg, #0d73ba 60%, #ffffff 40%);
   }
+
+  .nav-right-logo {
+    height: 80px;
+  }
 }
 
 @media (min-width: 1200px) {
   .bg-hero {
     background: linear-gradient(90deg, #0d73ba 60%, #ffffff 40%);
+  }
+
+  .nav-right-logo {
+    height: 80px;
   }
 }
 

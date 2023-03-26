@@ -8,10 +8,12 @@
             </div>
         </div>
         @foreach($years as $year)
-        <div class="row my-2">
+        <div class="row mb-5">
             <div class="col-12">
                 <a href="{{url('pdf/'.$year->url)}}" role="button" target="_blank" class="card p-3">
-                    {{$year->name}}
+                    <h4>
+                        {{$year->name}}
+                    </h4>
                 </a>
                 <button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#exampleModalCenter" data-file="{{$year->url}}">
                     Download
@@ -36,10 +38,10 @@
                     <img src="{{url('storage/image/download.png')}}" alt="download" height="150">
                 </div>
                 <div id="alert"></div>
-		        <div class="d-flex justify-content-center">
-                  <p class="font-14 mr-2 mt-2">Masukan Password : </p>
+		        <div class="d-flex justify-content-center align-items-center mt-2">
+                  <h5 class="font-14 mr-2 mt-2">Masukan Password : </h5>
                   <form id="modal-form">
-                    <input type="text" class="form-control" name="password" id="password">
+                    <input type="text" class="form-control" name="password" id="password" style="font-size: 2em">
                   </form>
                 </div>
             </div>

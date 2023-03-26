@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\AdminYearbookController;
 use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,13 @@ Route::middleware(['auth'])->group(function () {
             });
             Route::get('wisudawan/create', [AdminHomeController::class, 'createWisudawan'])->name('admin.create.wisudawan');
             Route::post('wisudawan', [AdminHomeController::class, 'storeWisudawan'])->name('admin.store.wisudawan');
+
+            Route::group(['prefix' => 'yearbook'], function() {
+                Route::get('', [AdminYearbookController::class, 'index'])->name('admin.yearbook.index');
+                Route::get('/create', [AdminYearbookController::class, 'create'])->name('admin.yearbook.create');
+                Route::post('', [AdminYearbookController::class, 'store'])->name('admin.yearbook.store');
+                Route::delete('{id}', [AdminYearbookController::class, 'destroy'])->name('admin.yearbook.destroy');
+            });
         });
     });
 
@@ -39,7 +47,7 @@ Route::get('/archive', 'ArchiveController@index');
 Route::get('/archive/year/{month}/{year}', 'ArchiveController@showyear');
 Route::get('download/pdf', 'PdfController@download');
 Route::get('/yearbook', 'PdfController@index')->name('yearbook');
-Route::get('/pdf/{id}', 'PdfController@show');
+Route::get('/pdf/{id}', 'PdfController@show')->name('yearbook.show');
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 

@@ -53,7 +53,7 @@
         <div class="row">
             <div class="col-12">
                 <a href="#" class="btn btn-secondary">Cancel</a>
-                <input type="submit" value="Create new Project" class="btn btn-success float-right">
+                <input type="submit" value="Add Mahasiswa Berprestasi" class="btn btn-success float-right">
             </div>
         </div>
 </form>

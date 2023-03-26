@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 pt-5 pb-5">
                 <div class="card">
-                    <div class="card-header">Daftar PDF</div>
+                    <h3 class="card-header">Yearbook Terbaru</h3>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -18,15 +18,10 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        @can('add pdf')
-                            <div class="mb-5">
-                                <a class="btn btn-primary"href="{{url('pdf/create')}}">Tambah Pdf</a>
-                            </div>
-                        @endcan
                         @foreach ($pdfs as $pdf)
                             <div>
                                 <embed src="{{asset('storage/pdf/'.$pdf->url) }}#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="300" type="application/pdf" alt="pdf" />
-                                <p class="text-bold font-20 mt-3">{{$pdf->name}}</p>
+                                <h4 class="text-bold mt-3">{{$pdf->name}}</h4>
                                 <div class="d-flex mb-3">
 				    <div class="mr-3">
                                         <a class="btn btn-primary" href="{{url('pdf/'.$pdf->url)}}">Show</a>
@@ -36,16 +31,6 @@
                                             Download
                                         </button>
                                     </div>
-                                    @can('delete pdf')
-                                    <div>
-                                        <form action="{{url('pdf/delete/'.$pdf->id)}}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-danger">Hapus</button>
-                                        </form>
-                                    </div>
-                                        
-                                    @endcan
                                 </div>
                             </div>
                         @endforeach
